@@ -1,0 +1,64 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.list-hw-10 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+.list-hw-10 li {
+  width: 250px;
+}
+
+.list-hw-10 a {
+  padding: 8px;
+  height: 40px;
+  font-weight: 600;
+}
+
+body {
+  padding: 30px;
+}
+
+body > p {
+  margin-bottom: 20px;
+  color: #cac7c7;
+  max-width: 70px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body > p > a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 10px;
+}
+
+body > p:hover {
+  color: #000000;
+}
+
+/* ______________________TIMER______________________________ */
