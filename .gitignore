@@ -29,7 +29,13 @@ README.md
 *.sln
 *.sw?
 
-1-gallery.js
-lession-today.js
+1-timer.html
+2-snackbar.html
+1-timer.js
+2-snackbar.js
+snackbar.css
+timer.css
+training.css
+training.js
 
 

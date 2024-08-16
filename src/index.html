@@ -2,30 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 10</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="./css/training.css" />
   </head>
+
   <body>
-    <ul class="list-hw-10">
-      <li><a href="./1-timer.html">Timer hw 10</a></li>
-      <li><a href="./2-snackbar.html">Snackbar hw 10</a></li>
-    </ul>
+    <section class="gallery-section">
+      <div class="container">
+        <form class="search-form js-search-form">
+          <input
+            class="search-input js-search-input"
+            type="text"
+            name="user_query"
+            required
+          />
+          <button class="search-btn" type="submit">пошук</button>
+        </form>
+        <ul class="gallery js-gallery"></ul>
+      </div>
+    </section>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
