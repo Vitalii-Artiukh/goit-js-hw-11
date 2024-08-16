@@ -22,43 +22,55 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.list-hw-10 {
+@import url('./reset.css');
+
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-form {
+  width: 600px;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-size: 24px;
-  line-height: 150%;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
-.list-hw-10 li {
-  width: 250px;
-}
-
-.list-hw-10 a {
-  padding: 8px;
+.search-input {
+  font-size: 18px;
+  flex-grow: 1;
   height: 40px;
-  font-weight: 600;
+  padding-left: 15px;
+  border: 1px solid #303030;
+  /* outline: transparent; */
 }
 
-body {
-  padding: 30px;
+.search-btn {
+  font-size: 14px;
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-body > p {
-  margin-bottom: 20px;
-  color: #cac7c7;
-  max-width: 70px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-body > p > a {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 10px;
+.gallery-card {
+  width: calc((100% - 60px) / 4);
 }
 
-body > p:hover {
-  color: #000000;
+.gallery-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
 }
-
-/* ______________________TIMER______________________________ */
