@@ -110,6 +110,9 @@
   width: 360px;
   height: 152px;
   object-fit: cover;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
 }
 
 .image-text {
