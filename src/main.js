@@ -7,6 +7,11 @@ const formSerched = document.querySelector('.js-search-form');
 const gallery = document.querySelector('.js-gallery');
 const preloader = document.querySelector('.preloader-wrap');
 
+const forRefresh = new SimpleLightbox('.js-gallery a', {
+  captionsData: 'alt',
+  captionDelay: 150,
+});
+
 const submitSearchPhoto = event => {
   preloader.classList.remove('is-visible');
   event.preventDefault();
@@ -34,11 +39,7 @@ const submitSearchPhoto = event => {
 
       gallery.innerHTML = photoCardsInfo;
       preloader.classList.add('is-visible');
-
-      new SimpleLightbox('.js-gallery a', {
-        captionsData: 'alt',
-        captionDelay: 150,
-      });
+      forRefresh.refresh();
     })
     .catch(error => {
       preloader.classList.add('is-visible');
