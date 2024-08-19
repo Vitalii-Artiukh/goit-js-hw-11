@@ -1,65 +1,17 @@
 import iziToast from 'izitoast';
 import SimpleLightbox from 'simplelightbox';
-
-const pixabayURL = 'https://pixabay.com/api/'; // URL
-const myKeyPixabay = '45488193-7ca777789e7fbcf45aeeb8195'; // key='***'
+import { fetchToPixabay } from './js/pixabay-api';
+import { createGalleryCard } from './js/render-functions';
 
 const formSerched = document.querySelector('.js-search-form');
-// const searchInput = document.querySelector('.js-search-input');
-// const searchBtn = document.querySelector('.search-btn');
 const gallery = document.querySelector('.js-gallery');
-
-console.dir(formSerched);
-
-const fetchToPixabay = questEntered => {
-  const urlOptions = new URLSearchParams({
-    key: myKeyPixabay,
-    q: questEntered,
-    image_type: 'photo',
-
-    safesearch: true,
-    orientation: 'horizontal',
-  });
-
-  return fetch(`${pixabayURL}?${urlOptions}`).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
-};
-
-const createGalleryCard = imageSet => {
-  return `<li class="gallery-card">
-            <a href="${imageSet.largeImageURL}" class="gallery-link">
-              <img class="image-normal" src="${imageSet.webformatURL}" alt="${imageSet.tags}" width="360" height="152" />
-              <ul class="image-text">
-                <li class="image-text-item">
-                  <p class="key key-likes">Likes</p>
-                  <p class="value value-likes">${imageSet.likes}</p>
-                </li>
-                <li class="image-text-item">
-                  <p class="key key-views">Viwes</p>
-                  <p class="value value-views">${imageSet.views}</p>
-                </li>
-                <li class="image-text-item">
-                  <p class="key key-comments">Comments</p>
-                  <p class="value value-comments">${imageSet.comments}</p>
-                </li>
-                <li class="image-text-item">
-                  <p class="key key-downloads">Downloads</p>
-                  <p class="value value-downloads">${imageSet.downloads}</p>
-                </li>
-              </ul>
-            </a>
-          </li>`;
-};
+const preloader = document.querySelector('.preloader-wrap');
 
 const submitSearchPhoto = event => {
+  preloader.classList.remove('is-visible');
   event.preventDefault();
 
   const searchResault = formSerched.elements.user_query.value;
-  console.log(searchResault);
 
   fetchToPixabay(searchResault)
     .then(data => {
@@ -73,7 +25,6 @@ const submitSearchPhoto = event => {
           messageColor: '#fafafb',
           messageSize: '16px',
           messageLineHeight: '150%',
-          timeout: '40000',
         });
       }
 
@@ -82,22 +33,25 @@ const submitSearchPhoto = event => {
         .join('');
 
       gallery.innerHTML = photoCardsInfo;
+      preloader.classList.add('is-visible');
 
       new SimpleLightbox('.js-gallery a', {
         captionsData: 'alt',
-        captionDelay: 250,
+        captionDelay: 150,
       });
-
-      // const
     })
     .catch(error => {
+      preloader.classList.add('is-visible');
       iziToast.info({
-        title: 'error',
+        title: `${error}`,
+        position: 'center',
+        backgroundColor: '#ef4040',
       });
       console.log(error);
     });
 
   formSerched.reset();
 };
+preloader.classList.add('is-visible');
 
 formSerched.addEventListener('submit', submitSearchPhoto);
