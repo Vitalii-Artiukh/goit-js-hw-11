@@ -26,6 +26,16 @@
 
 @import url('./reset.css');
 
+.iziToast-texts {
+  width: 322px;
+}
+
+.iziToast-message {
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 150%;
+}
+
 .container {
   width: 1440px;
   padding-top: 36px;
@@ -96,9 +106,18 @@
   border: 1px solid #808080;
 }
 
-.gallery-link {
+/* .gallery-link {
   width: 100%;
+  height: 152px;
   object-fit: cover;
+  overflow: hidden;
+} */
+
+.image-normal {
+  width: 360px;
+  height: 152px;
+  object-fit: cover;
+  /* overflow-y: hidden; */
 }
 
 .image-text {
@@ -108,6 +127,7 @@
   border-bottom: 1px solid #808080;
   border-left: 1px solid #808080;
   border-right: 1px solid #808080;
+  background-color: #ffffff;
 }
 
 .image-text-item {
