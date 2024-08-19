@@ -1,2 +1,24 @@
-import"./assets/styles-107c8cbc.js";import{f as S,i as f}from"./assets/vendor-e0a660ec.js";const b={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,onClose(t){if(l=t[0].getTime()-Date.now(),l<0){o.disabled=!0,f.error({message:"Please choose a date in the future",messageColor:"#ffffff",backgroundColor:"red",close:!1,position:"topRight"});return}o.disabled=!1,i=t[0]}},s=document.querySelector("#datetime-picker"),o=document.querySelector(".input-button > button"),n=document.querySelectorAll(".timer .value");o.addEventListener("click",y);o.disabled=!0;let i=0,l=0,r,e,a;S(s,b);const c=t=>{n[0].textContent=String(t.days).padStart(2,"0"),n[1].textContent=String(t.hours).padStart(2,"0"),n[2].textContent=String(t.minutes).padStart(2,"0"),n[3].textContent=String(t.seconds).padStart(2,"0")};function y(t){r=Date.now(),e=i-r,a=u(e),c(a),s.disabled=!0,o.disabled=!0;const d=setInterval(()=>{r=Date.now(),e=i-r,Math.floor(e/1e3)===0&&(clearInterval(d),s.disabled=!1,f.show({title:"Success",message:"Timer is FINISH",messageColor:"#f7f7f7",titleColor:"#f6f6f6",backgroundColor:"green",close:!1,position:"topRight"})),a=u(e),c(a)},1e3)}function u(t){const m=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),p=Math.floor(t%864e5%36e5/6e4),g=Math.floor(t%864e5%36e5%6e4/1e3);return{days:m,hours:h,minutes:p,seconds:g}}
+import{i as n,S as u}from"./assets/vendor-f33cd494.js";(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const l of r.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&o(l)}).observe(document,{childList:!0,subtree:!0});function t(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function o(e){if(e.ep)return;e.ep=!0;const r=t(e);fetch(e.href,r)}})();const m="https://pixabay.com/api/",p="45488193-7ca777789e7fbcf45aeeb8195",d=s=>{const a=new URLSearchParams({key:p,q:s,image_type:"photo",safesearch:!0,orientation:"horizontal"});return fetch(`${m}?${a}`).then(t=>{if(!t.ok)throw new Error(t.status);return t.json()})},f=s=>`<li class="gallery-card">
+            <a href="${s.largeImageURL}" class="gallery-link">
+              <img class="image-normal" src="${s.webformatURL}" alt="${s.tags}"/>
+              <ul class="image-text">
+                <li class="image-text-item">
+                  <p class="key key-likes">Likes</p>
+                  <p class="value value-likes">${s.likes}</p>
+                </li>
+                <li class="image-text-item">
+                  <p class="key key-views">Viwes</p>
+                  <p class="value value-views">${s.views}</p>
+                </li>
+                <li class="image-text-item">
+                  <p class="key key-comments">Comments</p>
+                  <p class="value value-comments">${s.comments}</p>
+                </li>
+                <li class="image-text-item">
+                  <p class="key key-downloads">Downloads</p>
+                  <p class="value value-downloads">${s.downloads}</p>
+                </li>
+              </ul>
+            </a>
+          </li>`,c=document.querySelector(".js-search-form"),y=document.querySelector(".js-gallery"),i=document.querySelector(".preloader-wrap"),h=s=>{i.classList.remove("is-visible"),s.preventDefault();const a=c.elements.user_query.value;d(a).then(t=>{t.hits.length===0&&n.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight",backgroundColor:"#ef4040",maxWidth:"432px",messageColor:"#fafafb",messageSize:"16px",messageLineHeight:"150%"});const o=t.hits.map(e=>f(e)).join("");y.innerHTML=o,i.classList.add("is-visible"),new u(".js-gallery a",{captionsData:"alt",captionDelay:150})}).catch(t=>{i.classList.add("is-visible"),n.info({title:`${t}`,position:"center",backgroundColor:"#ef4040"}),console.log(t)}),c.reset()};i.classList.add("is-visible");c.addEventListener("submit",h);
 //# sourceMappingURL=commonHelpers.js.map

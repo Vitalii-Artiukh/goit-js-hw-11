@@ -13,14 +13,20 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers3.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/styles-107c8cbc.js">
-    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-e0a660ec.js">
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/styles-904d9142.css">
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-7a007824.css">
+    <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-f33cd494.js">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-4f3a0d6f.css">
   </head>
 
   <body>
+    <div class="preloader-wrap">
+      <div class="preloader">
+        <div class="loading-circle loading-circle-one"></div>
+        <div class="loading-circle loading-circle-two"></div>
+        <div class="loading-circle loading-circle-three"></div>
+      </div>
+    </div>
+
     <section class="gallery-section">
       <div class="container">
         <form class="search-form js-search-form">
@@ -31,7 +37,7 @@
             placeholder="Search images..."
             required
           />
-          <button class="search-btn" type="submit">Start</button>
+          <button class="search-btn" type="submit">Search</button>
         </form>
         <ul class="gallery js-gallery"></ul>
       </div>
